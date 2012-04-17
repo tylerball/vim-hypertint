@@ -36,49 +36,55 @@ let s:hyp = {}
 
 " Default
 " Just a little off-white
-let s:hyp.default  = ['EFEFEF', 15]
+let s:hyp.default    = ['EFEFEF', 15]
 
 " Trying to find the right balance. Too dark a background and it seems really
 " dark on a dim display, too bright and it increases strain.
 let s:hyp.background = ['121212', 233]
 
 " Greyscales
-let s:hyp.light    = ['9CAEB3', 243]
-let s:hyp.mid    = ['6B7679', 243]
-let s:hyp.midlow    = ['454B4E', 238]
-let s:hyp.dark   = ['303030', 236]
-let s:hyp.darker   = ['282828', 235]
-let s:hyp.darkest = ['161616', 234]
-let s:hyp.black  = ['000000', 0]
+let s:hyp.light        = ['9CAEB3', 243]
+let s:hyp.mid          = ['6B7679', 243]
+let s:hyp.midlow       = ['454B4E', 238]
+let s:hyp.dark         = ['303030', 236]
+let s:hyp.darker       = ['282828', 235]
+let s:hyp.darkest      = ['161616', 234]
+let s:hyp.black        = ['000000', 0]
 
-let s:hyp.redlight    = ['FF7B7B', 167]
-let s:hyp.red    = ['FB0016', 196]
+let s:hyp.redlight     = ['FF7B7B', 167]
+let s:hyp.red          = ['FB0016', 196]
 let s:hyp.redmedium    = ['FF595C', 196]
+let s:hyp.redmid       = ['AC000B', 124]
+let s:hyp.reddark      = ['1C1111', 234]
 
-" A barely-there red for colorcolumn
-let s:hyp.reddark  = ['1C1111', 234]
-let s:hyp.redmid  = ['AC000B', 124]
-
-" off-grey for folded text
-let s:hyp.tealdark    = ['354752', 243]
-let s:hyp.tealmid    = ['69A1C9', 31]
+let s:hyp.tealdark     = ['354752', 243]
+let s:hyp.tealmid      = ['69A1C9', 31]
 let s:hyp.teallight    = ['B9DCF5', 117]
 
 let s:hyp.cyanlight    = ['93EBFF', 123]
-let s:hyp.cyan    = ['00D2FF', 45]
+let s:hyp.cyan         = ['00D2FF', 45]
 
-let s:hyp.aquabright    = ['69ABFB', 33]
-let s:hyp.aqualight    = ['7EBEFF', 81]
+let s:hyp.aquabright   = ['89FFE5', 50]
 
-let s:hyp.blue    = ['5C8DFF', 26]
+let s:hyp.blue         = ['5C8DFF', 26]
+let s:hyp.bluelight    = ['7EBEFF', 81]
 
-" orange
-let s:hyp.orange    = ['FF5F00', 202]
-let s:hyp.orangelight = ['FF893B', 191]
+let s:hyp.orange       = ['FF5F00', 202]
+let s:hyp.orangelight  = ['FF893B', 191]
 
-let s:hyp.yellowbright = ['FFDD7E', 221]
+let s:hyp.yellowlight = ['FFDD7E', 221]
+let s:hyp.yellow    = ['FFEF6A', 227]
 
-let s:hyp.turq = ['36EFB6', 50]
+let s:hyp.turq       = ['36EFB6', 50]
+
+let s:hyp.greenlight = ['C4D4AD', 151]
+let s:hyp.green = ['ACEF5A', 154]
+let s:hyp.greendark  = ['628A30', 64]
+
+let s:hyp.monolight  = ['85ABFB', 69]
+let s:hyp.mono  = ['5C8EF7', 69]
+let s:hyp.monodark  = ['627EB9', 67]
+let s:hyp.monodarker  = ['1E48A1', 57]
 
 " bright colors
 
@@ -125,27 +131,27 @@ endfunction
 " Colorscheme {{{ -------------------------------------------------------------
 
 " UI {{{
-call s:HL('Normal', 'default', 'background')
+call s:HL('Normal'       , 'default'  , 'background')
 
-call s:HL('Folded', 'tealdark', 'bg', 'none')
+call s:HL('Folded'       , 'tealdark' , 'bg'          , 'none')
 
-call s:HL('CursorLine', '', 'black', 'none')
-call s:HL('CursorColumn', '', 'black', 'none')
-call s:HL('ColorColumn', '', 'reddark', 'none')
+call s:HL('CursorLine'   , ''         , 'black'       , 'none')
+call s:HL('CursorColumn' , ''         , 'black'       , 'none')
+call s:HL('ColorColumn'  , ''         , 'reddark'     , 'none')
 
-call s:HL('LineNr', 'darker', 'darkest')
-call s:HL('VertSplit', 'darker', 'darker')
-call s:HL('SignColumn', '',         'darkest')
-call s:HL('FoldColumn', 'midlow', 'background')
+call s:HL('LineNr'       , 'darker'   , 'darkest')
+call s:HL('VertSplit'    , 'darker'   , 'darker')
+call s:HL('SignColumn'   , ''         , 'darkest')
+call s:HL('FoldColumn'   , 'midlow'   , 'background')
 
-"call s:HL('MatchParen', 'dalespale', 'darkgravel', 'bold')
+call s:HL('MatchParen', 'red', 'background', 'bold')
 
 call s:HL('NonText',    'background', 'bg')
 
 call s:HL('Visual',    '',  'dark')
 call s:HL('VisualNOS', '',  'dark')
 
-call s:HL('Search',    'black', 'aqualight', 'bold')
+call s:HL('Search',    'black', 'bluelight', 'bold')
 call s:HL('IncSearch', 'black', 'aquabright', 'bold')
 
 call s:HL('Underlined', 'fg', '', 'underline')
@@ -154,7 +160,7 @@ call s:HL('StatusLine',   'light', 'darker',     'bold')
 call s:HL('StatusLineNC', 'mid', 'darker', 'bold')
 
 call s:HL('Directory', 'orangelight', '', 'bold')
-call s:HL('Title', 'aqualight')
+call s:HL('Title', 'bluelight')
 
 call s:HL('ErrorMsg',   'red',       '', 'bold')
 call s:HL('MoreMsg',    'light',   '',   'none')
@@ -163,7 +169,7 @@ call s:HL('Question',   'default', '',   'bold')
 call s:HL('WarningMsg', 'redlight',       '',   'bold')
 
 " This is a ctags tag, not an HTML one.  'Something you can use c-] on'.
-call s:HL('Tag', 'aqualight', '', 'bold')
+call s:HL('Tag', 'bluelight', '', 'bold')
 
 call s:HL('Cursor',  'black', 'red', 'bold')
 call s:HL('vCursor', 'black', 'reddark', 'bold')
@@ -174,29 +180,29 @@ call s:HL('iCursor', 'default', 'black', 'none')
 " }}}}
 " Syntax {{{
 
-call s:HL('Special', 'orange')
+call s:HL('Special', 'orangelight')
 
 call s:HL('Comment',        'mid')
 call s:HL('Todo',           'redmid', 'background', 'bold')
 call s:HL('SpecialComment', 'light', 'background', 'bold')
 
-call s:HL('String', 'yellowbright')
+call s:HL('String', 'yellowlight')
 
 call s:HL('Statement',   'blue', '', 'bold')
-call s:HL('Keyword',     'teallight', '', 'bold')
-call s:HL('Conditional', 'tealmid', '', 'bold')
+call s:HL('Keyword',     'cyan', '', 'bold')
+call s:HL('Conditional', 'blue', '', 'bold')
 call s:HL('Operator',    'cyanlight', '', 'none')
-"call s:HL('Label',       'taffy', '', 'none')
-"call s:HL('Repeat',      'taffy', '', 'none')
+call s:HL('Label',       'blue', '', 'none')
+call s:HL('Repeat',      'blue', '', 'none')
 
- "Functions and variable declarations are orange, because plain looks weird.
-"call s:HL('Identifier', 'orange', '', 'none')
-"call s:HL('Function',   'orange', '', 'none')
+" Functions and variable declarations are orange, because plain looks weird.
+call s:HL('Identifier', 'cyanlight', '', 'none')
+call s:HL('Function',   'cyanlight', '', 'none')
 
-call s:HL('PreProc',   'turq', '', 'none')
-call s:HL('Macro',     'turq', '', 'none')
-call s:HL('Define',    'turq', '', 'none')
-call s:HL('PreCondit', 'turq', '', 'bold')
+call s:HL('PreProc',   'aquabright', '', 'none')
+call s:HL('Macro',     'aquabright', '', 'none')
+call s:HL('Define',    'aquabright', '', 'none')
+call s:HL('PreCondit', 'aquabright', '', 'bold')
 
 call s:HL('Constant',  'orangelight', '', 'bold')
 call s:HL('Character', 'orangelight', '', 'bold')
@@ -208,7 +214,7 @@ call s:HL('Float',  'orangelight', '', 'bold')
 "" Not sure what 'special character in a constant' means, but let's make it pop.
 "call s:HL('SpecialChar', 'dress', '', 'bold')
 
-"call s:HL('Type', 'dress', '', 'none')
+call s:HL('Type', 'green', '', 'none')
 "call s:HL('StorageClass', 'taffy', '', 'none')
 "call s:HL('Structure', 'taffy', '', 'none')
 "call s:HL('Typedef', 'taffy', '', 'bold')
@@ -218,8 +224,8 @@ call s:HL('Float',  'orangelight', '', 'bold')
 
 "" Misc
 "call s:HL('Error',  'snow',   'taffy', 'bold')
-"call s:HL('Debug',  'snow',   '',      'bold')
-"call s:HL('Ignore', 'gravel', '',      '')
+call s:HL('Debug',  'yellow',   '',      'bold')
+call s:HL('Ignore', 'mid', '',      '')
 
 " }}}
 
