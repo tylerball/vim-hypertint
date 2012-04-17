@@ -53,6 +53,7 @@ let s:hyp.black  = ['000000', 0]
 
 let s:hyp.redlight    = ['FF7B7B', 167]
 let s:hyp.red    = ['FB0016', 196]
+let s:hyp.redmedium    = ['FF595C', 196]
 
 " A barely-there red for colorcolumn
 let s:hyp.reddark  = ['1C1111', 234]
@@ -60,18 +61,24 @@ let s:hyp.redmid  = ['AC000B', 124]
 
 " off-grey for folded text
 let s:hyp.tealdark    = ['354752', 243]
+let s:hyp.tealmid    = ['69A1C9', 31]
+let s:hyp.teallight    = ['B9DCF5', 117]
 
 let s:hyp.cyanlight    = ['93EBFF', 123]
 let s:hyp.cyan    = ['00D2FF', 45]
 
 let s:hyp.aquabright    = ['69ABFB', 33]
-let s:hyp.aqua    = ['0A9DFF', 27]
+let s:hyp.aqualight    = ['7EBEFF', 81]
 
 let s:hyp.blue    = ['5C8DFF', 26]
 
 " orange
 let s:hyp.orange    = ['FF5F00', 202]
-let s:hyp.orangelight = ['FAB177', 191]
+let s:hyp.orangelight = ['FF893B', 191]
+
+let s:hyp.yellowbright = ['FFDD7E', 221]
+
+let s:hyp.turq = ['36EFB6', 50]
 
 " bright colors
 
@@ -138,7 +145,7 @@ call s:HL('NonText',    'background', 'bg')
 call s:HL('Visual',    '',  'dark')
 call s:HL('VisualNOS', '',  'dark')
 
-call s:HL('Search',    'black', 'aqua', 'bold')
+call s:HL('Search',    'black', 'aqualight', 'bold')
 call s:HL('IncSearch', 'black', 'aquabright', 'bold')
 
 call s:HL('Underlined', 'fg', '', 'underline')
@@ -146,22 +153,21 @@ call s:HL('Underlined', 'fg', '', 'underline')
 call s:HL('StatusLine',   'light', 'darker',     'bold')
 call s:HL('StatusLineNC', 'mid', 'darker', 'bold')
 
-"call s:HL('Directory', 'dirtyblonde', '', 'bold')
+call s:HL('Directory', 'orangelight', '', 'bold')
+call s:HL('Title', 'aqualight')
 
-"call s:HL('Title', 'lime')
-
-"call s:HL('ErrorMsg',   'taffy',       'bg', 'bold')
-"call s:HL('MoreMsg',    'dalespale',   '',   'bold')
-"call s:HL('ModeMsg',    'dirtyblonde', '',   'bold')
-"call s:HL('Question',   'dirtyblonde', '',   'bold')
-"call s:HL('WarningMsg', 'dress',       '',   'bold')
+call s:HL('ErrorMsg',   'red',       '', 'bold')
+call s:HL('MoreMsg',    'light',   '',   'none')
+call s:HL('ModeMsg',    'light', '',   'bold')
+call s:HL('Question',   'default', '',   'bold')
+call s:HL('WarningMsg', 'redlight',       '',   'bold')
 
 " This is a ctags tag, not an HTML one.  'Something you can use c-] on'.
-call s:HL('Tag', '', '', 'bold')
+call s:HL('Tag', 'aqualight', '', 'bold')
 
-"call s:HL('Cursor',  'coal', 'tardis', 'bold')
-"call s:HL('vCursor', 'coal', 'tardis', 'bold')
-"call s:HL('iCursor', 'coal', 'tardis', 'none')
+call s:HL('Cursor',  'black', 'red', 'bold')
+call s:HL('vCursor', 'black', 'reddark', 'bold')
+call s:HL('iCursor', 'default', 'black', 'none')
 
 " hi IndentGuides                  guibg=#373737
 " hi WildMenu        guifg=#66D9EF guibg=#000000
@@ -171,15 +177,14 @@ call s:HL('Tag', '', '', 'bold')
 call s:HL('Special', 'orange')
 
 call s:HL('Comment',        'mid')
-call s:HL('Todo',           'black', 'redmid', 'bold')
-"call s:HL('SpecialComment', 'snow', 'bg', 'bold')
+call s:HL('Todo',           'redmid', 'background', 'bold')
+call s:HL('SpecialComment', 'light', 'background', 'bold')
 
-call s:HL('String', 'orangelight')
+call s:HL('String', 'yellowbright')
 
- "Control flow stuff is taffy.
 call s:HL('Statement',   'blue', '', 'bold')
-"call s:HL('Keyword',     'taffy', '', 'bold')
-"call s:HL('Conditional', 'taffy', '', 'bold')
+call s:HL('Keyword',     'teallight', '', 'bold')
+call s:HL('Conditional', 'tealmid', '', 'bold')
 call s:HL('Operator',    'cyanlight', '', 'none')
 "call s:HL('Label',       'taffy', '', 'none')
 "call s:HL('Repeat',      'taffy', '', 'none')
@@ -188,19 +193,17 @@ call s:HL('Operator',    'cyanlight', '', 'none')
 "call s:HL('Identifier', 'orange', '', 'none')
 "call s:HL('Function',   'orange', '', 'none')
 
-"call s:HL('PreProc',   'lime', '', 'none')
-"call s:HL('Macro',     'lime', '', 'none')
-"call s:HL('Define',    'lime', '', 'none')
-"call s:HL('PreCondit', 'lime', '', 'bold')
+call s:HL('PreProc',   'turq', '', 'none')
+call s:HL('Macro',     'turq', '', 'none')
+call s:HL('Define',    'turq', '', 'none')
+call s:HL('PreCondit', 'turq', '', 'bold')
 
-"" Constants of all kinds are colored together.
-"" I'm not really happy with the color yet...
-call s:HL('Constant',  'redlight', '', 'bold')
-"call s:HL('Character', 'toffee', '', 'bold')
-"call s:HL('Boolean',   'toffee', '', 'bold')
+call s:HL('Constant',  'orangelight', '', 'bold')
+call s:HL('Character', 'orangelight', '', 'bold')
+call s:HL('Boolean',   'orangelight', '', 'bold')
 
-"call s:HL('Number', 'toffee', '', 'bold')
-"call s:HL('Float',  'toffee', '', 'bold')
+call s:HL('Number', 'orangelight', '', 'bold')
+call s:HL('Float',  'orangelight', '', 'bold')
 
 "" Not sure what 'special character in a constant' means, but let's make it pop.
 "call s:HL('SpecialChar', 'dress', '', 'bold')
