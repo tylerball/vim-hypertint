@@ -69,11 +69,11 @@ let s:hyp.aquabright   = ['89FFE5', 50]
 let s:hyp.blue         = ['5C8DFF', 26]
 let s:hyp.bluelight    = ['7EBEFF', 81]
 
-let s:hyp.orange       = ['FF5F00', 202]
-let s:hyp.orangelight  = ['FF893B', 191]
+"let s:hyp.orange       = ['FF5F00', 202]
+"let s:hyp.orangelight  = ['FF893B', 191]
 
-let s:hyp.yellowlight = ['FFDD7E', 221]
-let s:hyp.yellow    = ['FFEF6A', 227]
+"let s:hyp.yellowlight = ['FFDD7E', 221]
+"let s:hyp.yellow    = ['FFEF6A', 227]
 
 let s:hyp.turq       = ['36EFB6', 50]
 
@@ -81,12 +81,23 @@ let s:hyp.greenlight = ['C4D4AD', 151]
 let s:hyp.green = ['ACEF5A', 154]
 let s:hyp.greendark  = ['628A30', 64]
 
-let s:hyp.monolight  = ['85ABFB', 69]
+let s:hyp.monolighter  = ['A4C0FB', 153]
+let s:hyp.monolight  = ['85ABFB', 75]
 let s:hyp.mono  = ['5C8EF7', 69]
 let s:hyp.monodark  = ['627EB9', 67]
 let s:hyp.monodarker  = ['1E48A1', 57]
 
-" bright colors
+let s:hyp.yellowlighter  = ['FFEE9D', 229]
+let s:hyp.yellowlight  = ['FFE779', 227]
+let s:hyp.yellow  = ['FFDF4D', 226]
+let s:hyp.yellowdark  = ['BFAE5B', 143]
+let s:hyp.yellowdarker  = ['A68D19', 136]
+
+let s:hyp.orangelighter  = ['FFC89D', 223]
+let s:hyp.orangelight  = ['FFB579', 216]
+let s:hyp.orange  = ['FF9C4D', 215]
+let s:hyp.orangedark  = ['BF875B', 137]
+let s:hyp.orangedarker  = ['A65719', 130]
 
 " Highlighting Function (thanks sjl) {{{
 function! s:HL(group, fg, ...)
