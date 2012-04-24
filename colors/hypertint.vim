@@ -43,8 +43,9 @@ let s:hyp.default    = ['FFFFFF', 15]
 let s:hyp.background = ['121212', 233]
 
 " Greyscales
+let s:hyp.lighter       = ['D9E8EB', 195]
 let s:hyp.light         = ['9CAEB3', 243]
-let s:hyp.mid           = ['6B7679', 243]
+let s:hyp.mid           = ['6B7679', 241]
 let s:hyp.midlow        = ['454B4E', 238]
 let s:hyp.dark          = ['303030', 236]
 let s:hyp.darker        = ['282828', 235]
@@ -55,11 +56,11 @@ let s:hyp.redlight      = ['FF7B7B', 167]
 let s:hyp.red           = ['FB0016', 196]
 let s:hyp.redmedium     = ['FF595C', 196]
 let s:hyp.redmid        = ['AC000B', 124]
-let s:hyp.reddark       = ['1C1111', 234]
+let s:hyp.reddark       = ['791117', 52]
+let s:hyp.reddarker     = ['1C1111', 234]
 
 let s:hyp.tealdark      = ['354752', 243]
-let s:hyp.tealmid       = ['69A1C9', 31]
-let s:hyp.teallight     = ['B9DCF5', 117]
+let s:hyp.teal          = ['5F90A9', 31]
 
 let s:hyp.cyanlight     = ['93EBFF', 123]
 let s:hyp.cyan          = ['00D2FF', 45]
@@ -75,6 +76,7 @@ let s:hyp.monolight     = ['85ABFB', 75]
 let s:hyp.mono          = ['5C8EF7', 69]
 let s:hyp.monodark      = ['627EB9', 67]
 let s:hyp.monodarker    = ['1E48A1', 57]
+let s:hyp.monodarkest   = ['031F48', 17]
 
 let s:hyp.yellowlighter = ['FFEE9D', 229]
 let s:hyp.yellowlight   = ['FFE779', 227]
@@ -85,7 +87,7 @@ let s:hyp.yellowdarker  = ['A68D19', 136]
 let s:hyp.orangelighter = ['FFB579', 216]
 let s:hyp.orangelight   = ['FF893B', 191]
 let s:hyp.orange        = ['FF9C4D', 215]
-let s:hyp.orangedark    = ['DF3C14', 202]
+let s:hyp.orangedark    = ['BF875B', 137]
 let s:hyp.orangedarker  = ['A65719', 130]
 
 " Highlighting Function (thanks sjl) {{{
@@ -135,16 +137,17 @@ call s:HL('Normal'       , 'default'     , 'background')
 
 call s:HL('Folded'       , 'tealdark'    , 'bg'          , 'none')
 
-call s:HL('LineNr'       , 'darker'      , 'darkest')
+call s:HL('LineNr'       , 'darker'      , 'darkest'     , 'none')
+call s:HL('CursorLineNr' , 'mid'            , 'black'       , 'none')
 call s:HL('VertSplit'    , 'darker'      , 'darker')
-call s:HL('SignColumn'   , ''            , 'darkest')
-call s:HL('FoldColumn'   , 'midlow'      , 'background')
+call s:HL('SignColumn'   , 'darker'            , 'darkest')
+call s:HL('FoldColumn'   , 'dark'      , 'darkest')
 
 call s:HL('CursorLine'   , ''            , 'black'       , 'none')
 call s:HL('CursorColumn' , ''            , 'black'       , 'none')
-call s:HL('ColorColumn'  , ''            , 'reddark'     , 'none')
+call s:HL('ColorColumn'  , ''            , 'reddarker'     , 'none')
 
-call s:HL('MatchParen'   , 'black'       , 'default'     , 'bold')
+call s:HL('MatchParen'   , 'black'         , 'light'     , 'bold')
 
 call s:HL('NonText'      , 'background'  , 'bg')
 
@@ -175,6 +178,11 @@ call s:HL('Cursor'  , 'black'     , 'red'     , 'bold')
 call s:HL('vCursor' , 'black'     , 'reddark' , 'bold')
 call s:HL('iCursor' , 'default'   , 'black'   , 'none')
 
+call s:HL('Pmenu' , 'default'   , 'dark'   , 'none')
+call s:HL('PmenuSel' , 'default'   , 'monodark', 'none')
+call s:HL('PmenuSbar' , 'darkest'   , 'darkest' ,'none')
+call s:HL('PmenuThumb' , 'default',   'default',   'none')
+
 "hi IndentGuides                  guibg=#373737
 " hi WildMenu        guifg=#66D9EF guibg=#000000
 " }}}}
@@ -195,7 +203,7 @@ call s:HL('Operator'       , 'cyanlight'      , ''           , 'none')
 call s:HL('Label'          , 'mono'           , ''           , 'none')
 call s:HL('Repeat'         , 'mono'           , ''           , 'none')
 
-call s:HL('Identifier'     , 'cyanlight'      , ''           , 'none')
+call s:HL('Identifier'     , 'cyan'      , ''           , 'none')
 call s:HL('Function'       , 'cyanlight'      , ''           , 'none')
 
 call s:HL('PreProc'        , 'aquabright'     , ''           , 'none')
@@ -207,7 +215,7 @@ call s:HL('Constant'       , 'orangelight'    , ''           , 'bold')
 call s:HL('Character'      , 'orangelight'    , ''           , 'bold')
 call s:HL('Boolean'        , 'orangelight'    , ''           , 'bold')
 
-call s:HL('Number'         , 'orangelight'    , ''           , 'bold')
+call s:HL('Number'         , 'orangelighter'  , ''           , 'bold')
 call s:HL('Float'          , 'orangelight'    , ''           , 'bold')
 
 call s:HL('SpecialChar'    , 'orange'         , ''           , 'bold')
@@ -218,10 +226,10 @@ call s:HL('Structure'      , 'monolight'      , ''           , 'none')
 call s:HL('Typedef'        , 'monolight'      , ''           , 'bold')
 
 "" Make try/catch blocks stand out.
-call s:HL('Exception', 'orangedark', '', 'bold')
+"call s:HL('Exception', 'lime', '', 'bold')
 
 "" Misc
-"call s:HL('Error' , 'snow'   , 'taffy' , 'bold')
+call s:HL('Error' , 'red'   , 'reddark' , 'bold')
 call s:HL('Debug'  , 'yellow' , ''      , 'bold')
 call s:HL('Ignore' , 'mid'    , ''      , '')
 
@@ -236,38 +244,49 @@ call s:HL('Instance', '', '', 'underline', 'mid')
 
 " CSS {{{
 
-"call s:HL('cssColorProp', 'fg', '', 'none')
-"call s:HL('cssBoxProp', 'fg', '', 'none')
-"call s:HL('cssTextProp', 'fg', '', 'none')
-"call s:HL('cssRenderProp', 'fg', '', 'none')
-"call s:HL('cssGeneratedContentProp', 'fg', '', 'none')
+call s:HL('cssColorProp'            , 'lighter'     , '' , 'none')
+call s:HL('cssBoxProp'              , 'lighter'     , '' , 'none')
+call s:HL('cssTextProp'             , 'lighter'     , '' , 'none')
+call s:HL('cssRenderProp'           , 'lighter'     , '' , 'none')
 
-"call s:HL('cssValueLength', 'toffee', '', 'bold')
-"call s:HL('cssColor', 'toffee', '', 'bold')
-"call s:HL('cssBraces', 'lightgravel', '', 'none')
-"call s:HL('cssIdentifier', 'orange', '', 'bold')
-"call s:HL('cssClassName', 'orange', '', 'none')
+call s:HL('cssGeneratedContentProp' , 'fg'          , '' , 'none')
+call s:HL('cssCommonAttr'           , 'mono'        , '' , 'none')
+call s:HL('cssUIAttr'               , 'mono'        , '' , 'none')
+call s:HL('cssBoxAttr'              , 'mono'        , '' , 'none')
+call s:HL('cssColorAttr'            , 'mono'        , '' , 'none')
+call s:HL('cssRenderAttr'           , 'mono'        , '' , 'none')
+call s:HL('cssTextAttr'             , 'mono'        , '' , 'none')
+
+call s:HL('cssValueLength'          , 'orange'      , '' , 'none')
+call s:HL('cssValueNumber'          , 'orange'      , '' , 'none')
+call s:HL('cssColor'                , 'orange'      , '' , 'none')
+call s:HL('cssBraces'               , 'monolighter' , '' , 'none')
+call s:HL('cssIdentifier'           , 'cyanlight'   , '' , 'none')
+call s:HL('cssClassName'            , 'cyan'        , '' , 'none')
+call s:HL('cssPseudoClass'          , 'teal'        , '' , 'none')
 
 " }}}
 " Diff {{{
 
-"call s:HL('gitDiff', 'lightgravel', '',)
+"call s:HL('gitDiff', '', 'darker',)
 
-"call s:HL('diffRemoved', 'dress', '',)
-"call s:HL('diffAdded', 'lime', '',)
-"call s:HL('diffFile', 'coal', 'taffy', 'bold')
-"call s:HL('diffNewFile', 'coal', 'taffy', 'bold')
+call s:HL('diffRemoved'  , ''        , 'reddarker'     )
+call s:HL('diffAdded'    , ''        , 'greendark'   )
+call s:HL('diffFile'     , ''        , 'darker'      , 'bold')
+call s:HL('diffNewFile'  , ''        , 'darker'      , 'bold')
+call s:HL('diffChange'   , 'light'   , 'monodarkest' , 'none')
+call s:HL('diffText'     , 'default' , 'tealdark'    , 'bold')
 
-"call s:HL('diffLine', 'coal', 'orange', 'bold')
-"call s:HL('diffSubname', 'orange', '', 'none')
+call s:HL('diffLine'     , ''        , 'darker'      , 'bold')
+"call s:HL('diffSubname' , 'orange'  , ''            , 'none')
 
 " }}}
 " Django Templates {{{
 
 "call s:HL('djangoArgument', 'dirtyblonde', '',)
-call s:HL('djangoTagBlock', 'orangelighter', '')
+call s:HL('djangoTagBlock', 'orangedark', 'black')
 call s:HL('djangoVarBlock', 'orangelight', '')
-call s:HL('djangoStatement', 'monolighter', '')
+call s:HL('djangoStatement', 'orangelight', 'black', 'bold')
  "hi djangoStatement guifg=#ff3853 gui=bold
 " hi djangoVarBlock guifg=#f4cf86
 
@@ -275,8 +294,8 @@ call s:HL('djangoStatement', 'monolighter', '')
 " HTML {{{
 
 "" Punctuation
-call s:HL('htmlTag',    'monodark', 'bg', 'none')
-call s:HL('htmlEndTag', 'monodark', 'bg', 'none')
+call s:HL('htmlTag',    'monodarker', 'bg', 'none')
+call s:HL('htmlEndTag', 'monodarker', 'bg', 'none')
 
 "" Tag names
 call s:HL('htmlTagName',        'monolight', '', 'bold')
@@ -291,14 +310,15 @@ call s:HL('htmlLink', 'orangelight', '', 'none')
 " Javascript {{{
 
 call s:HL('javaScriptBraces', 'orangelight', '', 'none')
-call s:HL('javaScriptParens', 'orangelight', '', 'bold')
-call s:HL('javaScriptGlobal', 'green', '', 'bold')
-call s:HL('javaScriptMember', 'cyan', '', 'bold')
+call s:HL('javaScriptParens', 'cyan', '', 'bold')
+call s:HL('javaScriptMember', 'orange', '', 'bold')
 
 " }}}
 " LessCSS {{{
 
 "call s:HL('lessVariable', 'lime', '', 'none')
+call s:HL('lessMixinChar', 'cyan', '', 'none')
+call s:HL('lessClass', 'cyan', '', 'none')
 
 " }}}
 " Markdown {{{
@@ -330,15 +350,15 @@ call s:HL('javaScriptMember', 'cyan', '', 'bold')
 " Python {{{
 
 "hi def link pythonOperator Operator
-call s:HL('pythonBuiltin'     , 'green')
-call s:HL('pythonBuiltinObj'  , 'orange')
-call s:HL('pythonBuiltinFunc' , 'orange')
-call s:HL('pythonEscape'      , 'green')
-call s:HL('pythonException'   , 'orangedark' , '' , 'bold')
-call s:HL('pythonExceptions'  , 'orangelight' , '' , 'none')
-call s:HL('pythonExClass'     , 'greendark'   , '' , 'underline')
-call s:HL('pythonPrecondit'   , 'green'       , '' , 'none')
-call s:HL('pythonDecorator'   , 'mono'        , '' , 'none')
+"call s:HL('pythonBuiltin',    'dress')
+call s:HL('pythonBuiltinObj', 'orange')
+"call s:HL('pythonBuiltinFunc', 'dress')
+call s:HL('pythonEscape',     'green')
+call s:HL('pythonException',  'orangelight', '', 'bold')
+call s:HL('pythonExceptions', 'orangelight', '', 'none')
+call s:HL('pythonExClass', 'greendark', '', 'underline')
+call s:HL('pythonPrecondit', 'green', '', 'none')
+"call s:HL('pythonDecorator',  'taffy', '', 'none')
 
 " }}}
 " Vim {{{
@@ -350,6 +370,7 @@ call s:HL('pythonDecorator'   , 'mono'        , '' , 'none')
 "call s:HL('VimNotation', 'dress', '', 'none')
 "call s:HL('VimBracket', 'dress', '', 'none')
 call s:HL('VimCommand', 'mono', '', 'none')
+call s:HL('VimAutoEvent', 'aquabright', '', 'none')
 
 " }}}
 
