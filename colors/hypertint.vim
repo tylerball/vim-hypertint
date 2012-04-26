@@ -9,6 +9,9 @@
 "
 " A Colorscheme by Tyler Ball, inspired by many.
 
+" TODO: remove
+nnoremap <localleader>h :colorscheme hypertint<cr>
+
 " Setup {{{ -------------------------------------------------------------------
 if !has("gui_running") && &t_Co != 88 && &t_Co != 256
     finish
@@ -131,10 +134,10 @@ call s:HL('Normal'       , 'default'     , 'background')
 
 call s:HL('Folded'       , 'tealdark'    , 'bg'          , 'none')
 
-call s:HL('LineNr'       , 'darker'      , 'darkest'     , 'none')
+call s:HL('LineNr'       , 'dark'      , 'darkest'     , 'none')
 call s:HL('VertSplit'    , 'darkest'     , 'darkest'     , 'none')
 call s:HL('CursorLineNr' , 'mid'         , 'black'       , 'none')
-call s:HL('SignColumn'   , 'darker'      , 'darkest')
+call s:HL('SignColumn'   , 'dark'        , 'darkest')
 call s:HL('FoldColumn'   , 'dark'        , 'darkest')
 
 call s:HL('CursorColumn' , 'default'     , 'black'       , 'none')
@@ -142,6 +145,7 @@ call s:HL('CursorColumn' , 'default'     , 'black'       , 'none')
 call s:HL('MatchParen'   , 'black'       , 'light'       , 'bold')
 
 call s:HL('NonText'      , 'background'  , 'bg')
+call s:HL('SpecialKey'      , 'midlow'  , 'bg')
 
 call s:HL('Visual'       , ''            , 'dark')
 hi link Visual VisualNOS
@@ -221,7 +225,7 @@ hi link StorageClass Typedef
 "call s:HL('Exception', 'lime', '', 'bold')
 
 "" Misc
-call s:HL('Error' , 'red'   , 'reddark' , 'bold')
+call s:HL('Error' , 'red'   , 'reddarker' , 'bold')
 call s:HL('Debug'  , 'yellow' , ''      , 'bold')
 call s:HL('Ignore' , 'mid'    , ''      , '')
 
@@ -312,12 +316,13 @@ call s:HL('markdownH3', 'orangelighter', '', 'none')
 call s:HL('markdownH4', 'orangelighter', '', 'none')
 call s:HL('markdownH5', 'orangelighter', '', 'none')
 call s:HL('markdownH6', 'orangelighter', '', 'none')
-call s:HL('markdownLinkText', 'green', '', 'underline')
-"call s:HL('markdownIdDeclaration', 'toffee')
+call s:HL('markdownLinkText', 'lighter', '', 'underline')
+call s:HL('markdownIdDeclaration', 'lighter')
+call s:HL('markdownId', 'monolighter')
 "call s:HL('markdownAutomaticLink', 'toffee', '', 'bold')
-call s:HL('markdownUrl', 'cyanlight', '', 'bold')
+call s:HL('markdownUrl', 'monolighter', '', 'none')
 call s:HL('markdownUrldelimiter', 'orange', '', 'bold')
-call s:HL('markdownLinkDelimiter', 'orange', '', 'bold')
+call s:HL('markdownLinkDelimiter', 'orangelighter', '', 'bold')
 call s:HL('markdownLinkTextDelimiter', 'orange', '', 'bold')
 call s:HL('markdownCodeDelimiter', 'orange', '', 'bold')
 call s:HL('markdownCode', 'monolight', '', 'none')
@@ -343,6 +348,26 @@ call s:HL('pythonDottedName',  'redlight', '', 'none')
 
 call s:HL('VimCommand', 'mono', '', 'none')
 call s:HL('VimAutoEvent', 'aquabright', '', 'none')
+
+" }}}
+
+" }}}
+
+" Plugins {{{
+
+" CtrlP {{{
+
+call s:HL('CtrlPNoEntries', 'redmedium', 'black', 'bold')
+call s:HL('CtrlPMatch', 'mono', 'background', 'none')
+call s:HL('CtrlPLinePre', 'monodark', 'background', 'none')
+call s:HL('CtrlPPrtBase', 'default', 'background', 'none')
+call s:HL('CtrlPPrtCursor', 'black', 'monodark', 'bold')
+
+" }}}
+" EasyMotion {{{
+
+call s:HL('EasyMotionTarget', 'red',     'background', 'none')
+call s:HL('EasyMotionShade',  'midlow', 'darkest')
 
 " }}}
 
