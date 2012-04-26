@@ -9,9 +9,6 @@
 "
 " A Colorscheme by Tyler Ball, inspired by many.
 
-" TODO remove this later
-nnoremap <localleader>h :colorscheme hypertint<cr>
-
 " Setup {{{ -------------------------------------------------------------------
 if !has("gui_running") && &t_Co != 88 && &t_Co != 256
     finish
@@ -24,10 +21,6 @@ if exists("syntax_on")
 endif
 
 let colors_name = "hypertint"
-
-if !exists("g:hypertint_html_link_underline") " {{{
-    let g:hypertint_html_link_underline = 1
-endif " }}}
 " }}}
 
 " Palette {{{ -----------------------------------------------------------------
@@ -57,7 +50,7 @@ let s:hyp.red           = ['FB0016', 196]
 let s:hyp.redmedium     = ['FF595C', 196]
 let s:hyp.redmid        = ['AC000B', 124]
 let s:hyp.reddark       = ['791117', 52]
-let s:hyp.reddarker     = ['1C1111', 234]
+let s:hyp.reddarker     = ['1C1111', 52]
 
 let s:hyp.tealdark      = ['354752', 243]
 let s:hyp.teal          = ['5F90A9', 31]
@@ -70,6 +63,7 @@ let s:hyp.aquabright    = ['89FFE5', 50]
 let s:hyp.greenlight    = ['C4D4AD', 151]
 let s:hyp.green         = ['ACEF5A', 154]
 let s:hyp.greendark     = ['6EA631', 70]
+let s:hyp.greendarker   = ['244900', 22]
 
 let s:hyp.monolighter   = ['A4C0FB', 153]
 let s:hyp.monolight     = ['85ABFB', 75]
@@ -138,21 +132,19 @@ call s:HL('Normal'       , 'default'     , 'background')
 call s:HL('Folded'       , 'tealdark'    , 'bg'          , 'none')
 
 call s:HL('LineNr'       , 'darker'      , 'darkest'     , 'none')
-call s:HL('CursorLineNr' , 'mid'            , 'black'       , 'none')
-call s:HL('VertSplit'    , 'darker'      , 'darker')
-call s:HL('SignColumn'   , 'darker'            , 'darkest')
-call s:HL('FoldColumn'   , 'dark'      , 'darkest')
+call s:HL('VertSplit'    , 'darkest'     , 'darkest'     , 'none')
+call s:HL('CursorLineNr' , 'mid'         , 'black'       , 'none')
+call s:HL('SignColumn'   , 'darker'      , 'darkest')
+call s:HL('FoldColumn'   , 'dark'        , 'darkest')
 
-call s:HL('CursorLine'   , ''            , 'black'       , 'none')
-call s:HL('CursorColumn' , ''            , 'black'       , 'none')
-call s:HL('ColorColumn'  , ''            , 'reddarker'     , 'none')
+call s:HL('CursorColumn' , 'default'     , 'black'       , 'none')
 
-call s:HL('MatchParen'   , 'black'         , 'light'     , 'bold')
+call s:HL('MatchParen'   , 'black'       , 'light'       , 'bold')
 
 call s:HL('NonText'      , 'background'  , 'bg')
 
 call s:HL('Visual'       , ''            , 'dark')
-call s:HL('VisualNOS'    , 'default'     , 'dark')
+hi link Visual VisualNOS
 
 call s:HL('Search'       , 'black'       , 'monolight'   , 'bold')
 call s:HL('IncSearch'    , 'black'       , 'aquabright'  , 'bold')
@@ -167,25 +159,25 @@ call s:HL('Title'        , 'monolight')
 
 call s:HL('ErrorMsg'     , 'red'         , 'background'  , 'bold')
 call s:HL('MoreMsg'      , 'light'       , ''            , 'none')
-call s:HL('ModeMsg'      , 'light'       , ''            , 'bold')
+hi link MoreMsg ModeMsg
 call s:HL('Question'     , 'default'     , ''            , 'bold')
 call s:HL('WarningMsg'   , 'redlight'    , ''            , 'bold')
 
-" This is a ctags tag, not an HTML one.  'Something you can use c-] on'.
-call s:HL('Tag'     , 'monolight' , ''        , 'bold')
+call s:HL('Tag'        , 'monolight' , ''        , 'bold')
 
-call s:HL('Cursor'  , 'black'     , 'red'     , 'bold')
-call s:HL('vCursor' , 'black'     , 'reddark' , 'bold')
-call s:HL('iCursor' , 'default'   , 'black'   , 'none')
+call s:HL('Cursor'     , 'black'     , 'default'     , 'bold')
+call s:HL('vCursor'    , 'black'     , 'default' , 'bold')
+call s:HL('iCursor'    , 'default'   , 'black'   , 'none')
 
-call s:HL('Pmenu' , 'default'   , 'dark'   , 'none')
-call s:HL('PmenuSel' , 'default'   , 'monodark', 'none')
-call s:HL('PmenuSbar' , 'darkest'   , 'darkest' ,'none')
-call s:HL('PmenuThumb' , 'default',   'default',   'none')
+call s:HL('Pmenu'      , 'default'   , 'dark'     , 'none')
+call s:HL('PmenuSel'   , 'default'   , 'monodark' , 'none')
+call s:HL('PmenuSbar'  , 'darkest'   , 'darkest'  , 'none')
+call s:HL('PmenuThumb' , 'default'   , 'default'  , 'none')
 
-"hi IndentGuides                  guibg=#373737
-" hi WildMenu        guifg=#66D9EF guibg=#000000
+hi CursorLine guibg=#000000 ctermbg=16 term=none cterm=none
+hi ColorColumn guibg=#1C1111 ctermbg=52
 " }}}}
+
 " Syntax {{{
 
 call s:HL('Special'        , 'orangelighter')
@@ -194,36 +186,36 @@ call s:HL('Comment'        , 'mid')
 call s:HL('Todo'           , 'redmid'         , 'background' , 'bold')
 call s:HL('SpecialComment' , 'light'          , 'background' , 'bold')
 
-call s:HL('String'         , 'yellowlight')
+call s:HL('String'         , 'yellowlight' , '')
 
 call s:HL('Statement'      , 'mono'           , ''           , 'bold')
 call s:HL('Keyword'        , 'cyan'           , ''           , 'bold')
-call s:HL('Conditional'    , 'mono'           , ''           , 'bold')
+hi link Statement Conditional
 call s:HL('Operator'       , 'cyanlight'      , ''           , 'none')
 call s:HL('Label'          , 'mono'           , ''           , 'none')
-call s:HL('Repeat'         , 'mono'           , ''           , 'none')
+hi link Label Repeat
 
 call s:HL('Identifier'     , 'cyan'      , ''           , 'none')
 call s:HL('Function'       , 'cyanlight'      , ''           , 'none')
 
 call s:HL('PreProc'        , 'aquabright'     , ''           , 'none')
-call s:HL('Macro'          , 'aquabright'     , ''           , 'none')
-call s:HL('Define'         , 'aquabright'     , ''           , 'none')
+hi link PreProc Macro
+hi link PreProc Define
 call s:HL('PreCondit'      , 'aquabright'     , ''           , 'bold')
 
 call s:HL('Constant'       , 'orangelight'    , ''           , 'bold')
-call s:HL('Character'      , 'orangelight'    , ''           , 'bold')
-call s:HL('Boolean'        , 'orangelight'    , ''           , 'bold')
+hi link Constant Character
+hi link Constant Boolean
 
 call s:HL('Number'         , 'orangelighter'  , ''           , 'bold')
 call s:HL('Float'          , 'orangelight'    , ''           , 'bold')
 
 call s:HL('SpecialChar'    , 'orange'         , ''           , 'bold')
 
-call s:HL('Type'           , 'green'          , ''           , 'none')
+call s:HL('Type'           , 'redlight'          , ''           , 'none')
 call s:HL('StorageClass'   , 'monolight'      , ''           , 'none')
-call s:HL('Structure'      , 'monolight'      , ''           , 'none')
-call s:HL('Typedef'        , 'monolight'      , ''           , 'bold')
+hi link StorageClass Structure
+hi link StorageClass Typedef
 
 "" Make try/catch blocks stand out.
 "call s:HL('Exception', 'lime', '', 'bold')
@@ -235,60 +227,45 @@ call s:HL('Ignore' , 'mid'    , ''      , '')
 
 " }}}
 
-" }}}
-
-" Custom stuff
+" Custom stuff {{{
 call s:HL('Instance', '', '', 'underline', 'mid')
+" }}}
 
 " Filetype-specific {{{
 
 " CSS {{{
 
 call s:HL('cssColorProp'            , 'lighter'     , '' , 'none')
-call s:HL('cssBoxProp'              , 'lighter'     , '' , 'none')
-call s:HL('cssTextProp'             , 'lighter'     , '' , 'none')
-call s:HL('cssRenderProp'           , 'lighter'     , '' , 'none')
+call s:HL('cssBoxProp'            , 'lighter'     , '' , 'none')
+call s:HL('cssTextProp'            , 'lighter'     , '' , 'none')
+call s:HL('cssRenderProp'            , 'lighter'     , '' , 'none')
+call s:HL('cssPagingProp'            , 'lighter'     , '' , 'none')
 
 call s:HL('cssGeneratedContentProp' , 'fg'          , '' , 'none')
 call s:HL('cssCommonAttr'           , 'mono'        , '' , 'none')
-call s:HL('cssUIAttr'               , 'mono'        , '' , 'none')
-call s:HL('cssBoxAttr'              , 'mono'        , '' , 'none')
-call s:HL('cssColorAttr'            , 'mono'        , '' , 'none')
-call s:HL('cssRenderAttr'           , 'mono'        , '' , 'none')
-call s:HL('cssTextAttr'             , 'mono'        , '' , 'none')
 
 call s:HL('cssValueLength'          , 'orange'      , '' , 'none')
-call s:HL('cssValueNumber'          , 'orange'      , '' , 'none')
-call s:HL('cssColor'                , 'orange'      , '' , 'none')
 call s:HL('cssBraces'               , 'monolighter' , '' , 'none')
 call s:HL('cssIdentifier'           , 'cyanlight'   , '' , 'none')
 call s:HL('cssClassName'            , 'cyan'        , '' , 'none')
+call s:HL('cssTagName'              , 'mono'        , '' , 'none')
 call s:HL('cssPseudoClass'          , 'teal'        , '' , 'none')
 
 " }}}
 " Diff {{{
 
-"call s:HL('gitDiff', '', 'darker',)
-
-call s:HL('diffRemoved'  , ''        , 'reddarker'     )
-call s:HL('diffAdded'    , ''        , 'greendark'   )
-call s:HL('diffFile'     , ''        , 'darker'      , 'bold')
-call s:HL('diffNewFile'  , ''        , 'darker'      , 'bold')
-call s:HL('diffChange'   , 'light'   , 'monodarkest' , 'none')
-call s:HL('diffText'     , 'default' , 'tealdark'    , 'bold')
-
-call s:HL('diffLine'     , ''        , 'darker'      , 'bold')
-"call s:HL('diffSubname' , 'orange'  , ''            , 'none')
+call s:HL('diffDelete' , 'black'   , 'reddark'     , '')
+call s:HL('diffAdd'    , 'default' , 'greendarker' , '')
+call s:HL('diffChange' , 'light'   , 'monodarkest' , 'none')
+call s:HL('diffText'   , 'default' , 'tealdark'    , 'bold')
 
 " }}}
 " Django Templates {{{
 
-"call s:HL('djangoArgument', 'dirtyblonde', '',)
+call s:HL('djangoArgument', 'redmedium', '',)
 call s:HL('djangoTagBlock', 'orangedark', 'black')
 call s:HL('djangoVarBlock', 'orangelight', '')
 call s:HL('djangoStatement', 'orangelight', 'black', 'bold')
- "hi djangoStatement guifg=#ff3853 gui=bold
-" hi djangoVarBlock guifg=#f4cf86
 
 " }}}
 " HTML {{{
@@ -303,7 +280,6 @@ call s:HL('htmlSpecialTagName', 'monolight', '', 'bold')
 
 "" Attributes
 call s:HL('htmlArg', 'monolighter', '', 'none')
-
 call s:HL('htmlLink', 'orangelight', '', 'none')
 
 " }}}
@@ -312,63 +288,59 @@ call s:HL('htmlLink', 'orangelight', '', 'none')
 call s:HL('javaScriptBraces', 'orangelight', '', 'none')
 call s:HL('javaScriptParens', 'cyan', '', 'bold')
 call s:HL('javaScriptMember', 'orange', '', 'bold')
+call s:HL('javaScriptMember', 'cyan', '', 'bold')
 
 " }}}
 " LessCSS {{{
 
-"call s:HL('lessVariable', 'lime', '', 'none')
+call s:HL('lessVariable', 'green', '', 'none')
 call s:HL('lessMixinChar', 'cyan', '', 'none')
 call s:HL('lessClass', 'cyan', '', 'none')
 
 " }}}
 " Markdown {{{
 
-"call s:HL('markdownHeadingRule', 'lightgravel', '', 'bold')
-"call s:HL('markdownHeadingDelimiter', 'lightgravel', '', 'bold')
-"call s:HL('markdownOrderedListMarker', 'lightgravel', '', 'bold')
-"call s:HL('markdownListMarker', 'lightgravel', '', 'bold')
-"call s:HL('markdownItalic', 'snow', '', 'bold')
-"call s:HL('markdownBold', 'snow', '', 'bold')
-"call s:HL('markdownH1', 'orange', '', 'bold')
-"call s:HL('markdownH2', 'lime', '', 'bold')
-"call s:HL('markdownH3', 'lime', '', 'none')
-"call s:HL('markdownH4', 'lime', '', 'none')
-"call s:HL('markdownH5', 'lime', '', 'none')
-"call s:HL('markdownH6', 'lime', '', 'none')
-"call s:HL('markdownLinkText', 'toffee', '', 'underline')
+call s:HL('markdownHeadingRule', 'orangedarker', '', 'bold')
+call s:HL('markdownHeadingDelimiter', 'orangedarker', '', 'bold')
+call s:HL('markdownOrderedListMarker', 'monolight', '', 'bold')
+call s:HL('markdownListMarker', 'monolight', '', 'bold')
+call s:HL('markdownItalic', 'monolighter', '', 'italic')
+call s:HL('markdownBold', 'monolighter', '', 'bold')
+call s:HL('markdownH1', 'orange', '', 'bold')
+call s:HL('markdownH2', 'orangelighter', '', 'bold')
+call s:HL('markdownH3', 'orangelighter', '', 'none')
+call s:HL('markdownH4', 'orangelighter', '', 'none')
+call s:HL('markdownH5', 'orangelighter', '', 'none')
+call s:HL('markdownH6', 'orangelighter', '', 'none')
+call s:HL('markdownLinkText', 'green', '', 'underline')
 "call s:HL('markdownIdDeclaration', 'toffee')
 "call s:HL('markdownAutomaticLink', 'toffee', '', 'bold')
-"call s:HL('markdownUrl', 'toffee', '', 'bold')
-"call s:HL('markdownUrldelimiter', 'lightgravel', '', 'bold')
-"call s:HL('markdownLinkDelimiter', 'lightgravel', '', 'bold')
-"call s:HL('markdownLinkTextDelimiter', 'lightgravel', '', 'bold')
-"call s:HL('markdownCodeDelimiter', 'dirtyblonde', '', 'bold')
-"call s:HL('markdownCode', 'dirtyblonde', '', 'none')
-"call s:HL('markdownCodeBlock', 'dirtyblonde', '', 'none')
+call s:HL('markdownUrl', 'cyanlight', '', 'bold')
+call s:HL('markdownUrldelimiter', 'orange', '', 'bold')
+call s:HL('markdownLinkDelimiter', 'orange', '', 'bold')
+call s:HL('markdownLinkTextDelimiter', 'orange', '', 'bold')
+call s:HL('markdownCodeDelimiter', 'orange', '', 'bold')
+call s:HL('markdownCode', 'monolight', '', 'none')
+call s:HL('markdownCodeBlock', 'monolighter', '', 'none')
 
 " }}}
 " Python {{{
 
-"hi def link pythonOperator Operator
-"call s:HL('pythonBuiltin',    'dress')
+hi def link pythonOperator Operator
+call s:HL('pythonBuiltin',    'orange')
 call s:HL('pythonBuiltinObj', 'orange')
-"call s:HL('pythonBuiltinFunc', 'dress')
+call s:HL('pythonBuiltinFunc', 'monolight')
 call s:HL('pythonEscape',     'green')
 call s:HL('pythonException',  'orangelight', '', 'bold')
 call s:HL('pythonExceptions', 'orangelight', '', 'none')
 call s:HL('pythonExClass', 'greendark', '', 'underline')
 call s:HL('pythonPrecondit', 'green', '', 'none')
-"call s:HL('pythonDecorator',  'taffy', '', 'none')
+call s:HL('pythonDecorator',  'redlight', '', 'none')
+call s:HL('pythonDottedName',  'redlight', '', 'none')
 
 " }}}
 " Vim {{{
 
-"call s:HL('VimCommentTitle', 'lightgravel', '', 'bold')
-
-"call s:HL('VimMapMod',    'dress', '', 'none')
-"call s:HL('VimMapModKey', 'dress', '', 'none')
-"call s:HL('VimNotation', 'dress', '', 'none')
-"call s:HL('VimBracket', 'dress', '', 'none')
 call s:HL('VimCommand', 'mono', '', 'none')
 call s:HL('VimAutoEvent', 'aquabright', '', 'none')
 
