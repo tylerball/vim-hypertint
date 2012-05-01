@@ -14,23 +14,23 @@ Screenshots
 
 Python
 
-![python](https://github.com/tylerball/vim-hypertint/raw/master/screenshots/python.jpg)
+![python](https://github.com/tylerball/vim-hypertint/raw/master/screenshots/python.png)
 
 Javascript
 
-![javascript](https://github.com/tylerball/vim-hypertint/raw/master/screenshots/javascript.jpg)
+![javascript](https://github.com/tylerball/vim-hypertint/raw/master/screenshots/javascript.png)
 
 HTML (Django Templates)
 
-![html](https://github.com/tylerball/vim-hypertint/raw/master/screenshots/html.jpg)
+![html](https://github.com/tylerball/vim-hypertint/raw/master/screenshots/html.png)
 
 Markdown
 
-![markdown](https://github.com/tylerball/vim-hypertint/raw/master/screenshots/markdown.jpg)
+![markdown](https://github.com/tylerball/vim-hypertint/raw/master/screenshots/markdown.png)
 
 Vim
 
-![vim](https://github.com/tylerball/vim-hypertint/raw/master/screenshots/vim.jpg)
+![vim](https://github.com/tylerball/vim-hypertint/raw/master/screenshots/vim.png)
 
 Inspiration
 -----------
