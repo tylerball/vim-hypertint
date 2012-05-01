@@ -1,7 +1,13 @@
 hypertint
 =========
 
-A vim colorscheme by Tyler Ball, inspired by many.
+A vim colorscheme by Tyler Ball, inspired by many. Somewhat of a work in progress.
+
+Installation
+------------
+
+Copy the `colors/hypertint.vim` to your `~/.vim/colors` directory, or even better,
+use [vundle](https://github.com/gmarik/vundle) to keep it up to date.
 
 Screenshots
 -----------
