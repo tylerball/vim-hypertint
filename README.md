@@ -8,13 +8,23 @@ Screenshots
 
 Python
 
+![python](https://github.com/tylerball/vim-hypertint/raw/master/screenshots/python.jpg)
+
 Javascript
+
+![javascript](https://github.com/tylerball/vim-hypertint/raw/master/screenshots/javascript.jpg)
 
 HTML (Django Templates)
 
+![html](https://github.com/tylerball/vim-hypertint/raw/master/screenshots/html.jpg)
+
 Markdown
 
+![markdown](https://github.com/tylerball/vim-hypertint/raw/master/screenshots/markdown.jpg)
+
 Vim
+
+![vim](https://github.com/tylerball/vim-hypertint/raw/master/screenshots/vim.jpg)
 
 Inspiration
 -----------
