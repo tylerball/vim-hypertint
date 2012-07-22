@@ -50,7 +50,7 @@ let s:hyp.black         = ['000000', 0]
 
 let s:hyp.redlight      = ['FF7B7B', 167]
 let s:hyp.red           = ['FB0016', 196]
-let s:hyp.redmedium     = ['FF595C', 196]
+let s:hyp.redmedium     = ['FF595C', 203]
 let s:hyp.redmid        = ['AC000B', 124]
 let s:hyp.reddark       = ['791117', 52]
 let s:hyp.reddarker     = ['1C1111', 52]
@@ -59,7 +59,7 @@ let s:hyp.tealdark      = ['354752', 243]
 let s:hyp.teal          = ['5F90A9', 31]
 
 let s:hyp.cyanlight     = ['93EBFF', 123]
-let s:hyp.cyan          = ['00D2FF', 45]
+let s:hyp.cyan          = ['00D2FF', 33]
 
 let s:hyp.aquabright    = ['89FFE5', 50]
 
@@ -82,7 +82,7 @@ let s:hyp.yellowdark    = ['BFAE5B', 143]
 let s:hyp.yellowdarker  = ['A68D19', 136]
 
 let s:hyp.orangelighter = ['FFB579', 216]
-let s:hyp.orangelight   = ['FF893B', 191]
+let s:hyp.orangelight   = ['FF893B', 172]
 let s:hyp.orange        = ['FF9C4D', 215]
 let s:hyp.orangedark    = ['BF875B', 137]
 let s:hyp.orangedarker  = ['A65719', 130]
@@ -267,9 +267,9 @@ call s:HL('diffText'   , 'default' , 'tealdark'    , 'bold')
 " Django Templates {{{
 
 call s:HL('djangoArgument', 'redmedium', '',)
-call s:HL('djangoTagBlock', 'orangedark', 'black')
+call s:HL('djangoTagBlock', 'orangedark', '')
 call s:HL('djangoVarBlock', 'orangelight', '')
-call s:HL('djangoStatement', 'orangelight', 'black', 'bold')
+call s:HL('djangoStatement', 'orangelight', '', 'bold')
 
 " }}}
 " HTML {{{
