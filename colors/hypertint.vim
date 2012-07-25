@@ -345,12 +345,16 @@ call s:HL('pythonDottedName',  'redlight', '', 'none')
 
 " }}}
 " Vim {{{
-
 call s:HL('VimCommand', 'mono', '', 'none')
 call s:HL('VimAutoEvent', 'aquabright', '', 'none')
 
 " }}}
 
+" git {{{
+call s:HL('gitcommitSummary', 'lighter', '', 'none')
+" }}}
+
+" }}
 " }}}
 
 " Plugins {{{
