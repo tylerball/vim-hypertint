@@ -9,9 +9,6 @@
 "
 " A Colorscheme by Tyler Ball, inspired by many.
 
-" TODO: remove
-nnoremap <localleader>h :colorscheme hypertint<cr>
-
 " Setup {{{ -------------------------------------------------------------------
 if !has("gui_running") && &t_Co != 88 && &t_Co != 256
     finish
@@ -30,13 +27,11 @@ let colors_name = "hypertint"
 
 let s:hyp = {}
 
-" Default
-" Just a little off-white
 let s:hyp.default    = ['FFFFFF', 15]
 
 " Trying to find the right balance. Too dark a background and it seems really
 " dark on a dim display, too bright and it increases strain.
-let s:hyp.background = ['121212', 233]
+let s:hyp.background = ['1C1C1C', 234]
 
 " Greyscales
 let s:hyp.lighter       = ['D9E8EB', 195]
@@ -45,7 +40,6 @@ let s:hyp.mid           = ['6B7679', 241]
 let s:hyp.midlow        = ['454B4E', 238]
 let s:hyp.dark          = ['303030', 236]
 let s:hyp.darker        = ['282828', 235]
-let s:hyp.darkest       = ['161616', 234]
 let s:hyp.black         = ['000000', 0]
 
 let s:hyp.redlight      = ['FF7B7B', 167]
@@ -53,7 +47,7 @@ let s:hyp.red           = ['FB0016', 196]
 let s:hyp.redmedium     = ['FF595C', 203]
 let s:hyp.redmid        = ['AC000B', 124]
 let s:hyp.reddark       = ['791117', 52]
-let s:hyp.reddarker     = ['1C1111', 52]
+let s:hyp.reddarker     = ['70000D', 88]
 
 let s:hyp.tealdark      = ['354752', 243]
 let s:hyp.teal          = ['5F90A9', 31]
@@ -134,11 +128,11 @@ call s:HL('Normal'       , 'default'     , 'background')
 
 call s:HL('Folded'       , 'tealdark'    , 'bg'          , 'none')
 
-call s:HL('LineNr'       , 'dark'      , 'darkest'     , 'none')
-call s:HL('VertSplit'    , 'darkest'     , 'darkest'     , 'none')
+call s:HL('LineNr'       , 'mid'      , 'background'     , 'none')
+call s:HL('VertSplit'    , 'background'     , 'background'     , 'none')
 call s:HL('CursorLineNr' , 'mid'         , 'black'       , 'none')
-call s:HL('SignColumn'   , 'dark'        , 'darkest')
-call s:HL('FoldColumn'   , 'dark'        , 'darkest')
+call s:HL('SignColumn'   , 'dark'        , 'background')
+call s:HL('FoldColumn'   , 'dark'        , 'background')
 
 call s:HL('CursorColumn' , 'default'     , 'black'       , 'none')
 
@@ -147,7 +141,7 @@ call s:HL('MatchParen'   , 'black'       , 'light'       , 'bold')
 call s:HL('NonText'      , 'background'  , 'bg')
 call s:HL('SpecialKey'      , 'midlow'  , 'bg')
 
-call s:HL('Visual'       , ''            , 'dark')
+call s:HL('Visual'       , ''            , 'reddarker')
 hi link Visual VisualNOS
 
 call s:HL('Search'       , 'black'       , 'monolight'   , 'bold')
@@ -169,17 +163,17 @@ call s:HL('WarningMsg'   , 'redlight'    , ''            , 'bold')
 
 call s:HL('Tag'        , 'monolight' , ''        , 'bold')
 
-call s:HL('Cursor'     , 'black'     , 'default'     , 'bold')
-call s:HL('vCursor'    , 'black'     , 'default' , 'bold')
+call s:HL('Cursor'     , 'black'     , 'orange'     , 'bold')
+call s:HL('vCursor'    , 'black'     , 'orangedark' , 'bold')
 call s:HL('iCursor'    , 'default'   , 'black'   , 'none')
 
 call s:HL('Pmenu'      , 'default'   , 'dark'     , 'none')
 call s:HL('PmenuSel'   , 'default'   , 'monodark' , 'none')
-call s:HL('PmenuSbar'  , 'darkest'   , 'darkest'  , 'none')
+call s:HL('PmenuSbar'  , 'background'   , 'background'  , 'none')
 call s:HL('PmenuThumb' , 'default'   , 'default'  , 'none')
 
 hi CursorLine guibg=#000000 ctermbg=16 term=none cterm=none
-hi ColorColumn guibg=#1C1111 ctermbg=52
+hi ColorColumn guibg=#121212 ctermbg=233
 " }}}}
 
 " Syntax {{{
@@ -371,7 +365,7 @@ call s:HL('CtrlPPrtCursor', 'black', 'monodark', 'bold')
 " EasyMotion {{{
 
 call s:HL('EasyMotionTarget', 'red',     'background', 'none')
-call s:HL('EasyMotionShade',  'midlow', 'darkest')
+call s:HL('EasyMotionShade',  'midlow', 'black')
 
 " }}}
 
