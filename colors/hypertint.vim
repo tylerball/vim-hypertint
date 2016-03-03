@@ -190,7 +190,7 @@ call s:HL('Comment'        , 'mid')
 call s:HL('Todo'           , 'redmid'         , 'background' , 'bold')
 call s:HL('SpecialComment' , 'light'          , 'background' , 'bold')
 
-call s:HL('String'         , 'yellowlight' , '')
+call s:HL('String'         , 'yellowlighter' , '')
 
 call s:HL('Statement'      , 'mono'           , ''           , 'bold')
 call s:HL('Keyword'        , 'cyan'           , ''           , 'bold')
