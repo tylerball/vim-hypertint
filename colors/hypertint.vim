@@ -199,7 +199,7 @@ call s:HL('Operator'       , 'cyanlight'      , ''           , 'none')
 call s:HL('Label'          , 'mono'           , ''           , 'none')
 hi link Label Repeat
 
-call s:HL('Identifier'     , 'cyan'      , ''           , 'none')
+call s:HL('Identifier'     , 'monolight'      , ''           , 'none')
 call s:HL('Function'       , 'cyanlight'      , ''           , 'none')
 
 call s:HL('PreProc'        , 'aquabright'     , ''           , 'none')
